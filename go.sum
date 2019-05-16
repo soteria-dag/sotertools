@@ -46,10 +46,10 @@ github.com/onsi/ginkgo v1.7.0/go.mod h1:lLunBs/Ym6LB5Z9jYTR76FiuTmxDTDusOGeTQH+W
 github.com/onsi/gomega v1.4.1/go.mod h1:C1qb7wdrVGGVU+Z6iS04AVkA3Q65CEZX59MT0QO5uiA=
 github.com/onsi/gomega v1.4.3 h1:RE1xgDvH7imwFD45h+u2SgIfERHlS2yNG4DObb5BSKU=
 github.com/onsi/gomega v1.4.3/go.mod h1:ex+gbHU/CVuBBDIJjb2X0qEXbFg53c61hWP/1CpauHY=
-github.com/soteria-dag/soterd v0.0.0-20190515211118-fc811bc59404 h1:vI//5AA8oBXXwAdFMhBcj0VvPh7OvL+UMwr3R+XSYXM=
-github.com/soteria-dag/soterd v0.0.0-20190515211118-fc811bc59404/go.mod h1:gV4t3vYZhMJvsQrj6LyCKXZZdkGmKOMMQEQxrktnVFM=
-github.com/soteria-dag/soterwallet v0.0.0-20190515213922-0568461dd659 h1:efTsq0h/Ne1TY2pxEv0gWyABqptsnuobabgNLroXk1k=
-github.com/soteria-dag/soterwallet v0.0.0-20190515213922-0568461dd659/go.mod h1:vbL5Ws4/tvspE1fb2hX/vMLDoDCdalXkMcrvNHQn8Oc=
+github.com/soteria-dag/soterd v0.0.0-20190516175817-9d98d396ce62 h1:4wn0m27OCbD+GRSCNGH+C819w9MEqXpSA9p2oXUY/s8=
+github.com/soteria-dag/soterd v0.0.0-20190516175817-9d98d396ce62/go.mod h1:gV4t3vYZhMJvsQrj6LyCKXZZdkGmKOMMQEQxrktnVFM=
+github.com/soteria-dag/soterwallet v0.0.0-20190516180625-3f710ede5edb h1:h+8Jk2Mn7SOOvlREBAAAwlgNwaHR9spnHkR+fyRsiig=
+github.com/soteria-dag/soterwallet v0.0.0-20190516180625-3f710ede5edb/go.mod h1:rBvzpeU7kwsCcKhBYoQoC1ITWPekrn4K2U8gs87RZqE=
 go.etcd.io/bbolt v1.3.2 h1:Z/90sZLPOeCy2PwprqkFa25PdkusRzaj9P8zm/KNyvk=
 go.etcd.io/bbolt v1.3.2/go.mod h1:IbVyRI1SCnLcuJnV2u8VeU0CEYM7e686BmAb1XKL+uU=
 golang.org/x/crypto v0.0.0-20190308221718-c2843e01d9a2/go.mod h1:djNgcEr1/C05ACkg1iLfiJU5Ep61QUkGW8qpdssI0+w=
