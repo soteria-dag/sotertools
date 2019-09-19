@@ -5,7 +5,7 @@
 package main
 
 import (
-	"github.com/soterium/soter-tools/cmd/walletweb/templates"
+	"github.com/soteria-dag/sotertools/cmd/walletweb/templates"
 	"html/template"
 	"net/http"
 )

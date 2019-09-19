@@ -10,7 +10,7 @@ import (
 	"os"
 	"path/filepath"
 
-	"github.com/soterium/soter-tools/wallet"
+	"github.com/soteria-dag/sotertools/wallet"
 	"github.com/soteria-dag/soterd/chaincfg"
 	"github.com/soteria-dag/soterd/soterutil"
 	"github.com/soteria-dag/soterwallet/waddrmgr"

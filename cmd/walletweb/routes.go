@@ -6,8 +6,8 @@ package main
 
 import (
 	"fmt"
-	"github.com/soterium/soter-tools/cmd/walletweb/static"
-	"github.com/soterium/soter-tools/wallet"
+	"github.com/soteria-dag/sotertools/cmd/walletweb/static"
+	"github.com/soteria-dag/sotertools/wallet"
 	"github.com/soteria-dag/soterd/soterutil"
 	"log"
 	"net/http"

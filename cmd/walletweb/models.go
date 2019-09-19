@@ -5,7 +5,7 @@
 package main
 
 import (
-	"github.com/soterium/soter-tools/wallet"
+	"github.com/soteria-dag/sotertools/wallet"
 	"github.com/soteria-dag/soterd/rpcclient"
 	"github.com/soteria-dag/soterd/soterutil"
 )

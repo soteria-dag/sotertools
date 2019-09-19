@@ -1,4 +1,4 @@
-soter-tools
+sotertools
 ===
 
 This repository contains tools that use Soteria DAG projects to demonstrate functionality. Tools are located in the [cmd](cmd) directory.
