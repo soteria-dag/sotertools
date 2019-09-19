@@ -8,11 +8,18 @@ You can build and install all tools with the following command:
 go install ./cmd/...
 ```
 
-## gentx
+## balance
 
-The [gentx](cmd/gentx/README.md) command demonstrates generating a transaction and sending it to a soterd network, without needing to run a full [soterwallet](https://github.com/soteria-dag/soterwallet) service or going through a more [manual process of creating transactions](http://www.righto.com/2014/02/bitcoins-hard-way-using-raw-bitcoin.html).
+The [balance](cmd/balance/README.md) command iterates through a dag, determining the SOTER coin balance of a given address.
 
+## sendcoin
+
+The `sendcoin` command demonstrates generating a transaction and sending it to a soterd network, without needing to run a full [soterwallet](https://github.com/soteria-dag/soterwallet) service.
 
 ## genwallet
 
 The [genwallet](cmd/genwallet/README.md) command can create an offline wallet, without needing to run a full [soterwallet](https://github.com/soteria-dag/soterwallet) service.
+
+## walletweb
+
+The [walletweb](cmd/walletweb/README.md) utility provides a web ui for retrieving wallet address balance and sending coin to the soter network.

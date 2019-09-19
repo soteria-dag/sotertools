@@ -9,30 +9,17 @@ import (
 	"fmt"
 	"os"
 	"path/filepath"
-	"time"
 
+	"github.com/soterium/soter-tools/wallet"
 	"github.com/soteria-dag/soterd/chaincfg"
 	"github.com/soteria-dag/soterd/soterutil"
 	"github.com/soteria-dag/soterwallet/waddrmgr"
-	"github.com/soteria-dag/soterwallet/wallet"
-	"github.com/soteria-dag/soterwallet/walletdb"
 	// This is imported, so that the wallet driver is included in this program when compiled
 	_ "github.com/soteria-dag/soterwallet/walletdb/bdb"
 )
 
 const (
 	defaultWalletName = "wallet.db"
-
-	walletDbType = "bdb"
-
-	// The recoveryWindow is used when attempting to find unspent outputs that pay to any of our wallet's addresses.
-	// We won't use this, but we need to specify a value when calling wallet.Open().
-	// Here we use the github.com/soteria-dag/soterwallet/walletsetup.go createWallet function's default of 250
-	recoveryWindow = 250
-)
-
-var (
-	waddrmgrNamespaceKey = []byte("waddrmgr")
 )
 
 // fileExists returns true if a file with the name exists
@@ -43,97 +30,6 @@ func fileExists(name string) bool {
 	}
 
 	return true
-}
-
-// createWallet creates a wallet
-// NOTE(cedric): Based on github.com/soteria-dag/soterwallet/walletsetup.go createSimulationWallet function
-func createWallet(name, privPass, pubPass string, netParams *chaincfg.Params) error {
-	priv := []byte(privPass)
-	pub := []byte(pubPass)
-
-	walletDir, _ := filepath.Split(name)
-	err := os.MkdirAll(walletDir, 0750)
-	if err != nil {
-		return err
-	}
-
-	// Create the wallet database backed by bolt db.
-	db, err := walletdb.Create(walletDbType, name)
-	if err != nil {
-		return err
-	}
-	defer db.Close()
-
-	// Initialize wallet db, creating the wallet
-	err = wallet.Create(db, pub, priv, nil, netParams, time.Now())
-	if err != nil {
-		return err
-	}
-
-	return nil
-}
-
-// openWallet opens a wallet db, then wallet from it
-func openWallet(name, pubPass string, params *chaincfg.Params) (*wallet.Wallet, error) {
-	// Open wallet db
-	db, err := walletdb.Open(walletDbType, name)
-	if err != nil {
-		return nil, fmt.Errorf("Failed to open wallet db %s: %s", name, err)
-	}
-
-	// Open wallet
-	w, err := wallet.Open(db, []byte(pubPass), nil, params, recoveryWindow)
-	if err != nil {
-		return nil, fmt.Errorf("Failed to open wallet: %s", err)
-	}
-
-	return w, nil
-}
-
-// newWalletAddress creates and returns a new address for an account in a wallet.
-// It was taken from github.com/soteria-dag/soterwallet/wallet/wallet.go, because it was an unexported method.
-func newWalletAddress(w *wallet.Wallet, addrmgrNs walletdb.ReadWriteBucket, account uint32,
-	scope waddrmgr.KeyScope) (soterutil.Address, *waddrmgr.AccountProperties, error) {
-
-	manager, err := w.Manager.FetchScopedKeyManager(scope)
-	if err != nil {
-		return nil, nil, err
-	}
-
-	// Get next address from wallet.
-	addrs, err := manager.NextExternalAddresses(addrmgrNs, account, 1)
-	if err != nil {
-		return nil, nil, err
-	}
-
-	props, err := manager.AccountProperties(addrmgrNs, account)
-	if err != nil {
-		errMsg := fmt.Errorf("Cannot fetch account properties for notification "+
-			"after deriving next external address: %v", err)
-		return nil, nil, errMsg
-	}
-
-	return addrs[0].Address(), props, nil
-}
-
-// newAddress creates and returns a new address for an account in a wallet.
-// It was taken from github.com/soteria-dag/soterwallet/wallet/wallet.go, because the w.NewAddress was meant to be run from
-// the context of a running soterwallet process.
-func newAddress(w *wallet.Wallet, account uint32, scope waddrmgr.KeyScope) (soterutil.Address, error) {
-	var (
-		addr  soterutil.Address
-	)
-	err := walletdb.Update(w.Database(), func(tx walletdb.ReadWriteTx) error {
-		addrmgrNs := tx.ReadWriteBucket(waddrmgrNamespaceKey)
-		var err error
-		addr, _, err = newWalletAddress(w, addrmgrNs, account, scope)
-		return err
-	})
-	if err != nil {
-		return nil, err
-	}
-
-	return addr, nil
 }
 
 // soterwalletPath returns a default soterwallet file name
@@ -201,7 +97,7 @@ func main() {
 
 	if !exists {
 		// Create wallet
-		err = createWallet(walletName, privPass, pubPass, activeNetParams)
+		err = wallet.CreateWallet(walletName, privPass, pubPass, activeNetParams)
 		if err != nil {
 			fmt.Printf("Failed to create wallet: %s", err)
 			os.Exit(1)
@@ -210,7 +106,7 @@ func main() {
 	}
 
 	// Open wallet
-	w, err := openWallet(walletName, pubPass, activeNetParams)
+	w, err := wallet.OpenWallet(walletName, pubPass, activeNetParams)
 	if err != nil {
 		fmt.Println(err)
 		os.Exit(1)
@@ -241,7 +137,7 @@ func main() {
 
 		if a.AccountName == "default" && len(addresses) == 0 {
 			// Create an address that could be used for transactions
-			newAddr, err := newAddress(w, a.AccountNumber, waddrmgr.KeyScopeBIP0044)
+			newAddr, err := wallet.NewAddress(w, a.AccountNumber, waddrmgr.KeyScopeBIP0044)
 			if err != nil {
 				fmt.Printf("Failed to create new address for account %s (%d): %s\n", a.AccountName, a.AccountNumber, err)
 				return
