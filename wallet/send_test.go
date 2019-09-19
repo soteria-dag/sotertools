@@ -223,7 +223,7 @@ func TestSend(t *testing.T) {
 	}
 
 	feeAmount := smallest
-	sending := float64(int(smallest.ToSOTO()) + rand.Intn(int((spendable - feeAmount).ToSOTO())))
+	sending := float64(int(smallest.ToSOTER()) + rand.Intn(int((spendable - feeAmount).ToSOTER())))
 	sendAmount, err := soterutil.NewAmount(sending)
 	if err != nil {
 		t.Fatalf("failed to convert into SOTER: %s", err)
