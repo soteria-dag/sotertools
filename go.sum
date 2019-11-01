@@ -68,10 +68,10 @@ github.com/pkg/errors v0.8.1/go.mod h1:bwawxfHBFNV+L2hUp1rHADufV3IMtnDRdf1r5NINE
 github.com/pmezard/go-difflib v1.0.0 h1:4DBwDE0NGyQoBHbLQYPwSUPoCMWR5BEzIk/f1lZbAQM=
 github.com/pmezard/go-difflib v1.0.0/go.mod h1:iKH77koFhYxTK1pcRnkKkqfTogsbg7gZNVY4sRDYZ/4=
 github.com/satori/go.uuid v1.2.0/go.mod h1:dA0hQrYB0VpLJoorglMZABFdXlWrHn1NEOzdhQKdks0=
-github.com/soteria-dag/soterd v0.0.0-20191010193644-15a9e141a78b h1:rh7BYZ9OlbO2ki9aS9EjkcMUPipiHgj/NQDm4gKBmzE=
-github.com/soteria-dag/soterd v0.0.0-20191010193644-15a9e141a78b/go.mod h1:gV4t3vYZhMJvsQrj6LyCKXZZdkGmKOMMQEQxrktnVFM=
-github.com/soteria-dag/soterwallet v0.0.0-20191010193942-d92967edd3cb h1:yKp2HeOkmevVfS4R5ErW1Iv94jpDdV0QiPCtW05ued4=
-github.com/soteria-dag/soterwallet v0.0.0-20191010193942-d92967edd3cb/go.mod h1:r8xI21GVWCjW/RnDxzrEtk3QY2Q072iMTvWQ2Ysj+ag=
+github.com/soteria-dag/soterd v0.0.0-20191101002720-80c48f0843ed h1:p9xurJbm5FSK2v/QnYZIiDGdZmS6ik5WLzherpttCWU=
+github.com/soteria-dag/soterd v0.0.0-20191101002720-80c48f0843ed/go.mod h1:gV4t3vYZhMJvsQrj6LyCKXZZdkGmKOMMQEQxrktnVFM=
+github.com/soteria-dag/soterwallet v0.0.0-20191101003144-4a67c726065f h1:cEgK4m/h6EiBli9cxQ8kLT8I/Gno9wM7xfYYkOgT7co=
+github.com/soteria-dag/soterwallet v0.0.0-20191101003144-4a67c726065f/go.mod h1:YOQomh4MKq0lqDrnFxbNSG6FsHrmr2Z9gsXB3/mDESY=
 github.com/stretchr/objx v0.1.0/go.mod h1:HFkY916IF+rwdDfMAkV7OtwuqBVzrE8GR6GFx+wExME=
 github.com/stretchr/testify v1.3.0 h1:TivCn/peBQ7UY8ooIcPgZFpTNSz0Q2U6UrFlUfqbe0Q=
 github.com/stretchr/testify v1.3.0/go.mod h1:M5WIy9Dh21IEIfnGCwXGc5bZfKNJtfHm1UVUgZn+9EI=
@@ -80,9 +80,8 @@ github.com/wcharczuk/go-chart v2.0.1+incompatible/go.mod h1:PF5tmL4EIx/7Wf+hEkpC
 go.etcd.io/bbolt v1.3.2 h1:Z/90sZLPOeCy2PwprqkFa25PdkusRzaj9P8zm/KNyvk=
 go.etcd.io/bbolt v1.3.2/go.mod h1:IbVyRI1SCnLcuJnV2u8VeU0CEYM7e686BmAb1XKL+uU=
 golang.org/x/crypto v0.0.0-20190308221718-c2843e01d9a2/go.mod h1:djNgcEr1/C05ACkg1iLfiJU5Ep61QUkGW8qpdssI0+w=
+golang.org/x/crypto v0.0.0-20190621222207-cc06ce4a13d4 h1:ydJNl0ENAG67pFbB+9tfhiL2pYqLhfoaZFw/cjLhY4A=
 golang.org/x/crypto v0.0.0-20190621222207-cc06ce4a13d4/go.mod h1:yigFU9vqHzYiE8UmvKecakEJjdnWj3jj499lnFckfCI=
-golang.org/x/crypto v0.0.0-20191010185427-af544f31c8ac h1:/b4NMZurYfBIQyRMqaPGMDeUrSW6gU7/7Hv6owY1Vjk=
-golang.org/x/crypto v0.0.0-20191010185427-af544f31c8ac/go.mod h1:yigFU9vqHzYiE8UmvKecakEJjdnWj3jj499lnFckfCI=
 golang.org/x/image v0.0.0-20190910094157-69e4b8554b2a h1:gHevYm0pO4QUbwy8Dmdr01R5r1BuKtfYqRqF0h/Cbh0=
 golang.org/x/image v0.0.0-20190910094157-69e4b8554b2a/go.mod h1:FeLwcggjj3mMvU+oOTbSwawSJRM1uh48EjtB4UJZlP0=
 golang.org/x/lint v0.0.0-20181026193005-c67002cb31c3/go.mod h1:UVdnD1Gm6xHRNCYTkRU2/jEulfH38KcIWyp/GAMgvoE=
